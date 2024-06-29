@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function DiaryCard({ diary }) 
-{
+export default function DiaryCard({ diary }) {
+  const indexId = diary.id - 1;
   return (
-    <div className="flex flex-col bg-[#F6F5F5] drop-shadow-md" key="{diary.id}">
+    <div className="flex flex-col bg-[#F6F5F5] drop-shadow-md" key={diary.id}>
       <img src={diary.coverImage} alt="" className="w-full" />
 
       <div className="py-4 px-6 min-h-[152px]">
@@ -31,7 +31,7 @@ export default function DiaryCard({ diary })
       </div>
       <div className="flex justify-between">
         <p className="text-md pl-6 pb-6">0 Comments</p>
-        <Link to={`/diary-detail/${diary.id}`}>
+        <Link to={`/diary-detail/${indexId}`}>
           <button className="bg-[#40B2C9] text-white font-bold px-4 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700">
             Read more
           </button>

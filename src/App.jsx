@@ -20,7 +20,6 @@ import {
   getFromLocalStorage,
   removeFromLocalStorageArray,
 } from "./Util/localStorageUtil";
-import SavedDiaries from "./components/SavedDiaries";
 
 const localStorageKey = "saveddata";
 
