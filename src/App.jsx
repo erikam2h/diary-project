@@ -19,6 +19,8 @@ import {
 
 const localStorageKey = "saveddata";
 
+const diaries = getFromLocalStorage(localStorageKey);
+
 function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [items, setItems] = useState(getFromLocalStorage(localStorageKey));
@@ -41,6 +43,14 @@ function App() {
         <Route
           path="diary-detail/:id"
           element={<DiaryDetail diaries={items} />}
+        />
+        <Route
+          path="/*"
+          element={
+            <div className="min-h-[80vh] grid place-content-center">
+              <p className="font-bold text-center text-5xl"> 404 Not found </p>
+            </div>
+          }
         />
       </>
     )

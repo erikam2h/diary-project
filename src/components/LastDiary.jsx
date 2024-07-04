@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 export default function LastDiary({ diaries }) {
+  const indexId = diaries.id - 1;
+  // console.log(indexId);
   // console.log(diaries);
   return (
     <div className="my-12 container m-auto px-8 lg:px-0">
-      <div className=" md:flex bg-[#F6F5F5] drop-shadow-md" key="{diaries.id}">
+      <div className=" md:flex bg-[#F6F5F5] drop-shadow-md" key={diaries.id}>
         <div className="flex-none w-full md:w-1/3 lg:w-1/2">
           <img
             src={diaries.coverImage}
@@ -11,7 +13,7 @@ export default function LastDiary({ diaries }) {
             className="inset-0 w-full object-cover h-[300px]"
           />
         </div>
-        <div className="flex-col p-12">
+        <div className="flex-col lg:w-1/2 p-12">
           <p className="font-semibold bg-darkkorchid text-white text-xl px-8 py-2 rounded-bl-lg absolute top-0 right-0">
             Last diary
           </p>
@@ -20,11 +22,11 @@ export default function LastDiary({ diaries }) {
             {diaries.title}
           </h2>
 
-          <div className="flex justify-between my-6 ">
+          <div className="flex justify-between my-6">
             <span className="text-md font-bold text-[#40B2C9]">
               {diaries.tag}
             </span>
-            <div className="flex">
+            <div className="flex ">
               <span className="pr-4 pt-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +45,7 @@ export default function LastDiary({ diaries }) {
           </div>
 
           <p className="text-md">0 Comments</p>
-          <Link to={`/diary-detail/0`}>
+          <Link to={`/diary-detail/${indexId}`}>
             <button className="bg-[#40B2C9] text-white font-bold px-8 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700">
               Read more
             </button>
